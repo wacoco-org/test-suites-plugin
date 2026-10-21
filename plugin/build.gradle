@@ -2,6 +2,7 @@ plugins {
     id 'java-gradle-plugin'
     id 'groovy'
     id 'maven-publish'
+    id 'com.gradle.plugin-publish' version '2.2.1'
 }
 
 group = 'net.miwashi'
@@ -21,10 +22,15 @@ test {
 }
 
 gradlePlugin {
+    website = 'https://github.com/wacoco-org/test-suites-plugin'
+    vcsUrl = 'https://github.com/wacoco-org/test-suites-plugin.git'
     plugins {
         testSuites {
             id = 'net.miwashi.test-suites'
             implementationClass = 'net.miwashi.TestSuitesPlugin'
+            displayName = 'Test Suites'
+            description = 'Adds unit, smoke, integration and regression test suites with a shared common test source set.'
+            tags.set(['testing', 'junit', 'test-suites'])
         }
     }
 }
