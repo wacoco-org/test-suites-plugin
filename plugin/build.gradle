@@ -1,0 +1,30 @@
+plugins {
+    id 'java-gradle-plugin'
+    id 'groovy'
+    id 'maven-publish'
+}
+
+group = 'net.miwashi'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.2')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+gradlePlugin {
+    plugins {
+        testSuites {
+            id = 'net.miwashi.test-suites'
+            implementationClass = 'net.miwashi.TestSuitesPlugin'
+        }
+    }
+}
