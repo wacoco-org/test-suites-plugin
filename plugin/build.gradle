@@ -29,8 +29,21 @@ gradlePlugin {
             id = 'net.miwashi.test-suites'
             implementationClass = 'net.miwashi.TestSuitesPlugin'
             displayName = 'Test Suites'
-            description = 'Adds unit, smoke, integration and regression test suites with a shared common test source set.'
-            tags.set(['testing', 'junit', 'test-suites'])
+            description = 'Organizes tests into separate suites: unit, black-box (no access to main code), ' +
+                    'white-box (full access to main code) and tagged aggregator suites (JUnit 5 @Tag across all suites). ' +
+                    'Provides shared common test fixtures, suite-specific dependencies, per-suite console logging ' +
+                    'and reporting controls, configurable base URLs for black-box suites, and optional fail-safe ' +
+                    'HTTP reporting of test results for requirement tracing.'
+            tags.set([
+                    'testing',
+                    'junit5',
+                    'test-suites',
+                    'integration-testing',
+                    'smoke-testing',
+                    'black-box-testing',
+                    'white-box-testing',
+                    'test-reporting'
+            ])
         }
     }
 }
